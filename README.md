@@ -61,6 +61,7 @@
 
 ## Box地址
 
+链接: http://pan.baidu.com/s/1nt1hDMD 密码: ckg4（my-ubuntu64.box 就是我自定义的box）
 
 ## 关于一些常用的命令
 
