@@ -66,61 +66,59 @@
 
 **PHP-FPM**
 
-重启
+- 重启
 ```
 sudo service php5-fpm restart
 ```
-
-PHP 配置文件位置：`/etc/php5/fpm/php.ini`
-
-查看 phpinfo() -> http://test.php.com/
+- PHP 配置文件位置：`/etc/php5/fpm/php.ini`
+- 查看 phpinfo() -> http://test.php.com/
 
 **Nginx**
 
-重启
+- 重启
 ```sh
 sudo service nginx restart
 ```
 
-修改虚拟空间配置文件：
+- 修改虚拟空间配置文件：
 ```
 sudo vim /etc/nginx/conf.d/default.conf
 ```
 
 **MySQL**
 
-重启
+- 重启
 ```sh
 sudo service mysql restart
 ```
-在线 phpmyadmin -> http://mysql.php.com/
+- 在线 phpmyadmin -> http://mysql.php.com/
 
 **Redis**
 
-重启
+- 重启
 ```sh
 sudo service redis-server restart
 ```
-在线 phpRedisAdmin -> http://redis.php.com/
-测试 php redis 扩展 -> http://test.php.com/redis.php
+- 在线 phpRedisAdmin -> http://redis.php.com/
+- 测试 php redis 扩展 -> http://test.php.com/redis.php
 
 **Memcachad**
 
-重启
+- 重启
 ```sh
 sudo service memcached restart
 ```
-在线 MemAdmin -> http://memcached.php.com/
-测试 php memcache 扩展 -> http://test.php.com/memcache.php
-测试 php memcached 扩展 -> http://test.php.com/memcached.php
+- 在线 MemAdmin -> http://memcached.php.com/
+- 测试 php memcache 扩展 -> http://test.php.com/memcache.php
+- 测试 php memcached 扩展 -> http://test.php.com/memcached.php
 
 **MongoDB**
 
-重启
+- 重启
 ```sh
 sudo service mongodb restart
 ```
-在线 RockMongo（账号：admin 密码：admin） -> http://mongo.php.com
+- 在线 RockMongo（账号：admin 密码：admin） -> http://mongo.php.com
 
 ## Vagrant 参考文档
 
