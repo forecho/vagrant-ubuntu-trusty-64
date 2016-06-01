@@ -1,6 +1,21 @@
 打造自己的 vagrant 开发环境
 ================
 
+## 包括以下环境和软件：
+
+- Nginx 1.4.6
+- Mysql 5.5.44
+- PHP 5.6.22
+- git
+- [autojump](https://github.com/joelthelion/autojump)
+- [composer](https://getcomposer.org)
+- vim
+- redis (包括 phpredis 扩展) 2.8.4
+- MongoDB  (包括 php mongo 扩展) 2.4.9
+- Memcacahe (包括 php memcacahe 和 php memcached 扩展) 1.4.14
+- [swoole](http://www.swoole.com/)
+
+
 ## Box地址
 
 链接: http://pan.baidu.com/s/1nt1hDMD 密码: ckg4
@@ -43,21 +58,6 @@ IP：192.168.33.30
 ```
 sudo su // 不需要输入密码
 ```
-
-## 包括以下环境和软件：
-
-- Nginx 1.4.6
-- Mysql 5.5.44
-- PHP 5.5.9
-- git
-- [autojump](https://github.com/joelthelion/autojump)
-- [composer](https://getcomposer.org)
-- vim
-- redis (包括 phpredis 扩展) 2.8.4
-- MongoDB  (包括 php mongo 扩展) 2.4.9
-- Memcacahe (包括 php memcacahe 和 php memcached 扩展) 1.4.14
-- [swoole](http://www.swoole.com/)
-
 
 ## 关于 nginx 的使用
 
