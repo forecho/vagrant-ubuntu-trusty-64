@@ -23,7 +23,7 @@ cd ubuntu
 vagrant init ubuntu64 // 初始化
 
 ```
-然后下载本项目，替换 Vagrantfile 文件，然后启动 vagrant
+然后下载本项目到目前的目录下，并且替换 Vagrantfile 文件，然后启动 vagrant
 
 ```
 vagrant up
