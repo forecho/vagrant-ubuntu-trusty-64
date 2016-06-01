@@ -68,4 +68,9 @@ Vagrant.configure(2) do |config|
   #   sudo apt-get update
   #   sudo apt-get install -y apache2
   # SHELL
+  
+  $script = <<-SCRIPT
+  sudo service nginx start > /dev/null 2>&1
+  SCRIPT
+  config.vm.provision "shell", inline: $script, run: "always"
 end
