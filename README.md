@@ -1,6 +1,49 @@
 打造自己的 vagrant 开发环境
 ================
 
+## Box地址
+
+链接: http://pan.baidu.com/s/1nt1hDMD 密码: ckg4
+
+按时间排序使用最新的 box（即 Ubuntu20160601.box）。
+
+
+## 如何搭建
+
+下载最新的 box, 执行以下命令添加刚才下载好的 box 到 Box list：
+
+```sh
+// cd 下载 box 目录
+// vagrant box add 名称 路径
+vagrant box add ubuntu64 Ubuntu20160601.box
+
+vagrant box list // 查看
+mkdir ubuntu // 创建文件夹
+cd ubuntu 
+vagrant init ubuntu64 // 初始化
+
+```
+然后下载本项目，替换 Vagrantfile 文件，然后启动 vagrant
+
+```
+vagrant up
+```
+
+最后你可以愉快的时候 Xshell 工具 SSH 连接了。
+
+```
+IP：192.168.33.30
+端口：22
+用户名：vagrant
+密码：vagrant
+```
+
+连接之后切换 root 用户：
+
+```
+sudo su // 不需要输入密码
+```
+
 ## 包括以下环境和软件：
 
 - Nginx 1.4.6
@@ -13,6 +56,7 @@
 - redis (包括 phpredis 扩展) 2.8.4
 - MongoDB  (包括 php mongo 扩展) 2.4.9
 - Memcacahe (包括 php memcacahe 和 php memcached 扩展) 1.4.14
+- [swoole](http://www.swoole.com/)
 
 
 ## 关于 nginx 的使用
@@ -32,21 +76,21 @@
 				|--web
 ```
 
-默认我使用的是 `*.php.com` 作为域名。
+默认我使用的是 `*.dev.com` 作为域名。
 
 只要在**本机（一般是 Windows 系统）**的 hosts 文件，添加一下代码：
 
 ```
 ……
-192.168.33.30	cai.php.com
-192.168.33.30	cai-zheng-hai.php.com
-192.168.33.30	getyii-frontend-web.php.com
+192.168.33.30	cai.dev.com
+192.168.33.30	cai-zheng-hai.dev.com
+192.168.33.30	getyii-frontend-web.dev.com
 ……
 ```
 
 **注意**
 - 因为是虚拟机，所以添加 hosts 这一步是必须的。
-- 域名只做了三层解析，太多层觉得没必要。也就是说URL `cai-zheng-hai-open.php.com` 默认是不行的。
+- 域名只做了三层解析，太多层觉得没必要。也就是说URL `cai-zheng-hai-open.dev.com` 默认是不行的。
 - **Windows 可以使用 Acrylic 软件让 host 支持通配符解析，参考文章：[支持通配符和正则表达式的hosts文件(本地dns缓存及代理)](http://grow.sinaapp.com/?p=1368)**
 - **Mac 可以使用 Dnsmasq 软件让 host 支持通配符解析，参考文章：[Mac OSX 安装 Dnsmasq 来加速网络](http://www.shixf.com/wiki/os/macosx/dnsmasq)**
 
@@ -59,10 +103,6 @@
 默认密码：root
 
 
-## Box地址
-
-链接: http://pan.baidu.com/s/1nt1hDMD 密码: ckg4（my-ubuntu64.box 就是我自定义的box）
-
 ## 关于一些常用的命令
 
 **PHP-FPM**
@@ -72,7 +112,7 @@
 sudo service php5-fpm restart
 ```
 - PHP 配置文件位置：`/etc/php5/fpm/php.ini`
-- 查看 phpinfo() -> http://test.php.com/
+- 查看 phpinfo() -> http://test.dev.com/
 
 **Nginx**
 
@@ -92,7 +132,15 @@ sudo vim /etc/nginx/conf.d/default.conf
 ```sh
 sudo service mysql restart
 ```
-- 在线 phpmyadmin -> http://mysql.php.com/
+
+**使用在线 phpmyadmin**
+
+```sh
+cp mysql.zip /vagrant/php/
+unzip mysql.zip
+```
+
+然后访问 <http://mysql.dev.com/>
 
 **Redis**
 
@@ -100,8 +148,8 @@ sudo service mysql restart
 ```sh
 sudo service redis-server restart
 ```
-- 在线 phpRedisAdmin -> http://redis.php.com/
-- 测试 php redis 扩展 -> http://test.php.com/redis.php
+- 在线 phpRedisAdmin -> http://redis.dev.com/
+- 测试 php redis 扩展 -> http://test.dev.com/redis.php
 
 **Memcachad**
 
@@ -109,9 +157,9 @@ sudo service redis-server restart
 ```sh
 sudo service memcached restart
 ```
-- 在线 MemAdmin -> http://memcached.php.com/
-- 测试 php memcache 扩展 -> http://test.php.com/memcache.php
-- 测试 php memcached 扩展 -> http://test.php.com/memcached.php
+- 在线 MemAdmin -> http://memcached.dev.com/
+- 测试 php memcache 扩展 -> http://test.dev.com/memcache.php
+- 测试 php memcached 扩展 -> http://test.dev.com/memcached.php
 
 **MongoDB**
 
@@ -119,7 +167,15 @@ sudo service memcached restart
 ```sh
 sudo service mongodb restart
 ```
-- 在线 RockMongo（账号：admin 密码：admin） -> http://mongo.php.com
+
+**使用在线 RockMongo（账号：admin 密码：admin）**
+
+```sh
+cp mongo.zip /vagrant/php/
+unzip mongo.zip
+```
+
+然后访问 <http://mongo.dev.com/>
 
 ## Vagrant 参考文档
 
