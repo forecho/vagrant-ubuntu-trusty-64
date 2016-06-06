@@ -43,13 +43,16 @@ Vagrant.configure(2) do |config|
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
   #
-  # config.vm.provider "virtualbox" do |vb|
-  #   # Display the VirtualBox GUI when booting the machine
-  #   vb.gui = true
-  #
-  #   # Customize the amount of memory on the VM:
-  #   vb.memory = "1024"
-  # end
+  config.vm.provider "virtualbox" do |vb|
+    # Display the VirtualBox GUI when booting the machine
+    vb.gui = false
+
+    vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+    vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+    
+    # Customize the amount of memory on the VM:
+    vb.memory = "1024"
+  end
   #
   # View the documentation for the provider you are using for more
   # information on available options.
@@ -70,7 +73,8 @@ Vagrant.configure(2) do |config|
   # SHELL
   
   $script = <<-SCRIPT
+    echo nginx start...
     sudo service nginx start > /dev/null 2>&1
   SCRIPT
-  config.vm.provision "shell", inline: $script, run: "always"
+  config.vm.provision "shell", inline: $script
 end
